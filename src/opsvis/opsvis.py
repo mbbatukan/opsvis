@@ -38,7 +38,7 @@ fmt_interp = 'b-'  # blue solid line, no markers
 fmt_nodes = 'rs'  # red square markers, no line
 
 # initial model
-fmt_model = 'b.-'  # blue solid line, nodes as dot markers
+fmt_model =  {'color': 'blue', 'linestyle':'solid', 'linewidth': 1.0, 'marker': '.', 'markersize':1.0, 'markerfacecolor':'blue'}  # blue solid line, nodes as dot markers
 
 # deformed model
 fmt_defo = 'b-'  # green dashed line, no markers
@@ -166,7 +166,7 @@ def _plot_model_2d(node_labels, element_labels, offset_nd_label, axis_off,
             xt = sum(ex)/nen
             yt = sum(ey)/nen
 
-            plt.plot(ex, ey, fmt_model)
+            plt.plot(ex, ey, **fmt_model)
 
             if element_labels:
                 if ex[1]-ex[0] == 0:
@@ -232,7 +232,7 @@ def _plot_model_2d(node_labels, element_labels, offset_nd_label, axis_off,
             xt = sum(ex)/nen
             yt = sum(ey)/nen
 
-            plt.plot(np.append(ex, ex[0]), np.append(ey, ey[0]), fmt_model, ms=2)
+            plt.plot(np.append(ex, ex[0]), np.append(ey, ey[0]), **fmt_model, ms=2)
 
             if element_labels:
                 va = 'center'
@@ -599,7 +599,7 @@ def _plot_model_3d(node_labels, element_labels, offset_nd_label, axis_off,
             yt = sum(ey)/nen
             zt = sum(ez)/nen
 
-            ax.plot(ex, ey, ez, fmt_model)
+            ax.plot(ex, ey, ez, **fmt_model)
 
             # fixme: placement of node_tag labels
             if element_labels:
@@ -773,7 +773,7 @@ def _plot_model_3d(node_labels, element_labels, offset_nd_label, axis_off,
 
             ax.plot(np.append(ex, ex[0]),
                     np.append(ey, ey[0]),
-                    np.append(ez, ez[0]), fmt_model)
+                    np.append(ez, ez[0]), **fmt_model)
 
             # fixme: placement of node_tag labels
             if element_labels:
@@ -861,14 +861,14 @@ def _plot_model_3d(node_labels, element_labels, offset_nd_label, axis_off,
 
             ax.plot(np.append(ex[0:4], ex[0]),
                     np.append(ey[0:4], ey[0]),
-                    np.append(ez[0:4], ez[0]), fmt_model)
+                    np.append(ez[0:4], ez[0]), **fmt_model)
             ax.plot(np.append(ex[4:8], ex[4]),
                     np.append(ey[4:8], ey[4]),
-                    np.append(ez[4:8], ez[4]), fmt_model)
-            ax.plot([ex[0], ex[4]], [ey[0], ey[4]], [ez[0], ez[4]], fmt_model)
-            ax.plot([ex[1], ex[5]], [ey[1], ey[5]], [ez[1], ez[5]], fmt_model)
-            ax.plot([ex[2], ex[6]], [ey[2], ey[6]], [ez[2], ez[6]], fmt_model)
-            ax.plot([ex[3], ex[7]], [ey[3], ey[7]], [ez[3], ez[7]], fmt_model)
+                    np.append(ez[4:8], ez[4]), **fmt_model)
+            ax.plot([ex[0], ex[4]], [ey[0], ey[4]], [ez[0], ez[4]], **fmt_model)
+            ax.plot([ex[1], ex[5]], [ey[1], ey[5]], [ez[1], ez[5]], **fmt_model)
+            ax.plot([ex[2], ex[6]], [ey[2], ey[6]], [ez[2], ez[6]], **fmt_model)
+            ax.plot([ex[3], ex[7]], [ey[3], ey[7]], [ez[3], ez[7]], **fmt_model)
 
             # fixme: placement of node_tag labels
             if element_labels:
@@ -993,12 +993,12 @@ def _plot_model_3d(node_labels, element_labels, offset_nd_label, axis_off,
                 plt.plot(ex[[0+j*4, 8+j*4, 1+j*4, 9+j*4, 2+j*4, 10+j*4, 3+j*4, 11+j*4, 0+j*4]],
                          ey[[0+j*4, 8+j*4, 1+j*4, 9+j*4, 2+j*4, 10+j*4, 3+j*4, 11+j*4, 0+j*4]],
                          ez[[0+j*4, 8+j*4, 1+j*4, 9+j*4, 2+j*4, 10+j*4, 3+j*4, 11+j*4, 0+j*4]],
-                         fmt_model, lw=lw, ms=2, mfc='g', mec='g')
+                         **fmt_model, lw=lw, ms=2, mfc='g', mec='g')
 
             for j in range(4):
                 plt.plot(ex[[j, 16+j, 4+j]],
                          ey[[j, 16+j, 4+j]],
-                         ez[[j, 16+j, 4+j]], fmt_model,
+                         ez[[j, 16+j, 4+j]], **fmt_model,
                          lw=lw, ms=2, mfc='g', mec='g')
 
             # fixme: placement of node_tag labels
