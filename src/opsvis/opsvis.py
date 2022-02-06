@@ -1537,7 +1537,7 @@ def _plot_defo_mode_3d(modeNo, sfac, nep, unDefoFlag, fmt_defo, fmt_undefo,
                     plt.plot(ex, ey, ez, fmt_undefo)
 
                 # interpolated displacement field
-                if interpFlag:
+                if interpFlag and ((ex[1] - ex[0]) != 0 and (ey[1] - ey[0]) != 0 and (ez[1] - ez[0]) != 0):
                     xcd, ycd, zcd = beam_defo_interp_3d(ex, ey, ez, g,
                                                         ed, sfac, nep)
                 else:
