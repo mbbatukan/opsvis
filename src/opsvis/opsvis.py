@@ -5317,7 +5317,8 @@ def plot_extruded_shapes_3d(ele_shapes, az_el=az_el,
 
     ax.view_init(azim=azim, elev=elev)
 
-    for i, ele_tag in enumerate(ele_tags):
+#     for i, ele_tag in enumerate(ele_tags):
+    for i, ele_tag in enumerate(ele_shapes.keys()):
 
         nd1, nd2 = ops.eleNodes(ele_tag)
 
