@@ -2006,7 +2006,7 @@ This usually happens when translational DOFs are too small\n\n""")
     else:
         print(f'\nWarning! ndim: {ndim} not supported yet.')
 
-    return sfac
+    return print(f"{sfac = }")
 
 
 def _anim_mode_2d(modeNo, sfac, nep, unDefoFlag, fmt_defo, fmt_undefo,
